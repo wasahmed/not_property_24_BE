@@ -1,0 +1,57 @@
+body,html{
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    width: 100%;
+    height: 70px;
+    margin-top: -10px;
+    background-color: black;
+}
+
+h1 {
+    position: absolute;
+    padding: 2px;
+    float: left;
+    margin-left: 1%;
+    margin-top: 20px;
+    font-family: 'alfa slab one', cursive;
+    color: burlywood;
+}
+
+span {
+    color:darkgoldenrod;
+}
+
+ul {
+    width: auto;
+    float: right;
+    margin-top: 2px;
+}
+
+li {
+    display: inline-block;
+    padding: 15px 30px;
+    margin-top: 2px;
+}
+
+a {
+    text-align: center;
+    color: antiquewhite;
+    text-decoration: none;
+    font-family: 'open sans', sans-serif;
+    font-size: 2.0vw;
+}
+
+a:hover {
+    color: aquamarine;
+    transition: 0.5s;
+}
+
+form { 
+    position:fixed;
+   top:40%;
+   left:40%;
+   width:250px;
+    }
