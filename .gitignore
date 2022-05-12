@@ -1,0 +1,14 @@
+# npm
+node_modules
+package-lock.json
+*.log
+*.gz
+
+#SERVERLESS STUFF
+admin.env
+.env
+_meta
+.serverless
+
+# User added
+*.rest

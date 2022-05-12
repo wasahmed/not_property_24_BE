@@ -1,0 +1,40 @@
+service: template-project
+
+frameworkVersion: "2"
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: af-south-1
+  lambdaHashingVersion: 20201221
+  timeout: 20
+  environment:
+    stage: ${self:custom.myStage}
+
+custom:
+  myStage: ${opt:stage, 'dev'}
+  serverless-offline:
+    httpPort: 4000
+    websocketPort: 4001
+    lambdaPort: 4002
+
+functions:
+  listingType: 
+    name: ${self:service}-listingType
+    handler: functions/listingType.findAll
+    events:
+      - http:
+          path: api/listingType
+          method: get
+          cors: true
+  propertyType: 
+    name: ${self:service}-propertyType
+    handler: functions/propertyType.findAll
+    events:
+      - http:
+          path: api/propertyType
+          method: get
+          cors: true
+
+plugins:
+  - serverless-offline
