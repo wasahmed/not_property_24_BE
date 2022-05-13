@@ -49,8 +49,8 @@ CREATE TABLE [Agent] (
 );
 GO
 
-CREATE TABLE [Vehicle] (
-  [VehicleID] [INT] IDENTITY (1,1) NOT NULL PRIMARY KEY,
+CREATE TABLE [Property] (
+  [PropertyID] [INT] IDENTITY (1,1) NOT NULL PRIMARY KEY,
   [AgentID] [INT] NOT NULL,
   [PropertyTypeID] [INT] NOT NULL,
   [ListingTypeID] [INT] NOT NULL,
@@ -67,19 +67,19 @@ CREATE TABLE [Vehicle] (
   [ListingDate] [DATE] NOT NULL,
   [OccupationDate] [DATE] NULL,
       
-  CONSTRAINT [FK_Vehicle.AgentID]
+  CONSTRAINT [FK_Property.AgentID]
     FOREIGN KEY ([AgentID])
       REFERENCES [Agent]([AgentID]),
       
-  CONSTRAINT [FK_Vehicle.PropertyTypeID]
+  CONSTRAINT [FK_Property.PropertyTypeID]
     FOREIGN KEY ([PropertyTypeID])
       REFERENCES [PropertyType]([PropertyTypeID]),
       
-  CONSTRAINT [FK_Vehicle.ListingTypeID]
+  CONSTRAINT [FK_Property.ListingTypeID]
     FOREIGN KEY ([ListingTypeID])
       REFERENCES [ListingType]([ListingTypeID]),
 
-  CONSTRAINT [FK_Vehicle.AddressID]
+  CONSTRAINT [FK_Property.AddressID]
     FOREIGN KEY ([AddressID])
       REFERENCES [Address]([AddressID]),
 );
