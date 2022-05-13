@@ -29,8 +29,8 @@ router.post('/', (req, res) => {
     } 
 
     listings.push(newListing);
-    //res.json(listings);
-    res.redirect('/listings.html')
+    res.json(listings);
+    //res.redirect('/listings.html')
 });
 
 router.put('/:id', (req, res) => {
