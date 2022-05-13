@@ -1,13 +1,14 @@
 const config = require("./dbconfig");
-const sql = require('mssql');
+const mysql = require('mysql');
 
-async function connect(){
+function connect(){
     try{
-        let pool = await sql.connect(config);
+        let con = mysql.createConnection(config);
         console.log('Connected...')
-        return pool;
+        return con;
     }catch(err){
         console.log(err);
     }
 }
+
 module.exports = { connect };

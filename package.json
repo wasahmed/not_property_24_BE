@@ -16,7 +16,7 @@
   "dependencies": {
     "dotenv": "^16.0.0",
     "http-status-codes": "^2.1.4",
-    "mssql": "^8.1.0"
+    "mysql": "^2.18.1"
   },
   "repository": {
     "type": "git",
