@@ -32,7 +32,6 @@ GO
 CREATE TABLE [Address] (
   [AddressID] [INT] IDENTITY (1,1) NOT NULL PRIMARY KEY,
   [Street] [varchar](30) NOT NULL,
-  [Suburb] [varchar](30) NOT NULL,
   [City] [varchar](30) NOT NULL,
   [Province] [varchar](30) NOT NULL,
   [PostalCode] [varchar](10) NOT NULL,
