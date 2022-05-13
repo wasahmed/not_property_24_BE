@@ -9,8 +9,8 @@
     DB_USER="your_username"
     DB_PASSWORD="your_password"
     DB_NAME="NotProperty24_DB"
-    DB_SERVER='localhost'
-    DB_PORT=1433
+    DB_HOST='localhost'
+    DB_PORT=3306
     ```
 ### Serverless API
 1. Install the required packages:
@@ -19,8 +19,6 @@
 2. Start the offline Serverless API:
 
     `serverless offline`
-
-
 
 ## Endpoints
 Replace {domain} with the relevant domain where the server is hosted. if working local it will be `http://localhost:4000`.
