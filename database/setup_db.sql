@@ -81,6 +81,14 @@ CREATE TABLE Property (
       REFERENCES Address(AddressID)
 );
 
+CREATE TABLE Images (
+  ImageID Int AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  PropertyID INT NOT NULL,
+  ImageURL varchar(300),
+
+  FOREIGN KEY (PropertyID)
+    REFERENCES Property(PropertyID)
+)
 
 
 USE NotProperty24_DB;

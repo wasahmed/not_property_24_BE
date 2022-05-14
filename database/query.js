@@ -3,14 +3,54 @@ const sql = require("./connect");
 // Get All Properties
 async function GetAllListingTypes() {
     const connection = await sql.connect();
-    const [results,] = await connection.execute("SELECT * FROM listingtype");
+    const [results,] = await connection.execute("SELECT * FROM ListingType");
     return results;
 }
 
+// Get All Property Types
 async function GetAllPropertyTypes() {
     const connection = await sql.connect();
-    const [results,] = await connection.execute("SELECT * FROM propertytype");
+    const [results,] = await connection.execute("SELECT * FROM PropertyType");
     return results;
 }
 
-module.exports = { GetAllListingTypes, GetAllPropertyTypes };
+// General Function For Fetching Properties
+async function GetProperties(){
+    let sqlQuery = "SELECT * FROM Property";
+    for (var i=0; i<arguments.length; i++){
+        if(i==0){
+            sqlQuery = sqlQuery.concat(" WHERE ");
+        }else{
+            sqlQuery = sqlQuery.concat(" AND ");
+        }
+        if(arguments[i].type == "EQUAL"){
+            sqlQuery = sqlQuery.concat(`${arguments[i].field} = ${arguments[i].value}`);
+        }else if (arguments[i].type == "GREATER"){
+            sqlQuery = sqlQuery.concat(`${arguments[i].field} > ${arguments[i].value}`);
+        }else if (arguments[i].type == "LESS"){
+            sqlQuery = sqlQuery.concat(`${arguments[i].field} < ${arguments[i].value}`);
+        }else if (arguments[i].type == "BETWEEN"){
+            sqlQuery = sqlQuery.concat(`${arguments[i].field} BETWEEN ${arguments[i].min} AND ${arguments[i].max}`);
+        }
+    }
+    sqlQuery = sqlQuery.concat(" ORDER BY ListingDate DESC");
+    const connection = await sql.connect();
+    const [results,] = await connection.execute(sqlQuery);
+    return results;
+}
+
+// Get Property Images
+async function getImages(propertyID){
+    const connection = await sql.connect();
+    const [results,] = await connection.execute(`SELECT ImageURL FROM Images WHERE PropertyID = ${propertyID}`);
+    return results;
+}
+
+// Get Property Address
+async function GetAddress(propertyID){
+    const connection = await sql.connect();
+    const [results,] = await connection.execute(`SELECT * FROM Address WHERE PropertyID = ${propertyID} `);
+    return results;
+}
+
+module.exports = { GetAllListingTypes, GetAllPropertyTypes, GetProperties, getImages, GetAddress };

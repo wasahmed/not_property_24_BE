@@ -12,6 +12,7 @@ app.use(express.urlencoded({ extended: true}));
 
 app.use('/api/propertytype', require('./routes/api/propertyType'));
 app.use('/api/listingtype', require('./routes/api/listingType'));
+app.use('/api/properties', require('./routes/api/properties'));
 
 const PORT = 5001;
 
