@@ -15,6 +15,14 @@ async function GetAllPropertyTypes() {
 }
 
 // General Function For Fetching Properties
+/* 
+add query conditions as json objects in params with the following attributes:
+type: the equality type -> EQUAL, GREATER, LESS, or BETWEEN
+field: the name of the field 
+value: the condition value (EQUAL, GREATER, and LESS only)
+min: minimum value (BETWEEN only)
+max: maximum value (BETWEEN only)
+*/
 async function GetProperties(){
     let sqlQuery = "SELECT * FROM Property";
     for (var i=0; i<arguments.length; i++){
