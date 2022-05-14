@@ -55,9 +55,9 @@ async function getImages(propertyID){
 }
 
 // Get Property Address
-async function GetAddress(propertyID){
+async function GetAddress(addressID){
     const connection = await sql.connect();
-    const [results,] = await connection.execute(`SELECT * FROM Address WHERE PropertyID = ${propertyID} `);
+    const [results,] = await connection.execute(`SELECT * FROM Address WHERE AddressID = ${addressID} `);
     return results;
 }
 
