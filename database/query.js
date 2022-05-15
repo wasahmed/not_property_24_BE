@@ -16,7 +16,7 @@ async function GetAllPropertyTypes() {
 
 // General Function For Fetching Properties
 /* 
-add query conditions as json objects in params with the following attributes:
+add query conditions as an array of json objects in params with the following attributes:
 type: the equality type -> EQUAL, GREATER, LESS, or BETWEEN
 field: the name of the field 
 value: the condition value (EQUAL, GREATER, and LESS only)
@@ -25,20 +25,21 @@ max: maximum value (BETWEEN only)
 */
 async function GetProperties(){
     let sqlQuery = "SELECT * FROM Property";
-    for (var i=0; i<arguments.length; i++){
+    let conditions = arguments[0];
+    for (var i=0; i<conditions.length; i++){
         if(i==0){
             sqlQuery = sqlQuery.concat(" WHERE ");
         }else{
             sqlQuery = sqlQuery.concat(" AND ");
         }
-        if(arguments[i].type == "EQUAL"){
-            sqlQuery = sqlQuery.concat(`${arguments[i].field} = ${arguments[i].value}`);
-        }else if (arguments[i].type == "GREATER"){
-            sqlQuery = sqlQuery.concat(`${arguments[i].field} > ${arguments[i].value}`);
-        }else if (arguments[i].type == "LESS"){
-            sqlQuery = sqlQuery.concat(`${arguments[i].field} < ${arguments[i].value}`);
-        }else if (arguments[i].type == "BETWEEN"){
-            sqlQuery = sqlQuery.concat(`${arguments[i].field} BETWEEN ${arguments[i].min} AND ${arguments[i].max}`);
+        if(conditions[i].type == "EQUAL"){
+            sqlQuery = sqlQuery.concat(`${conditions[i].field} = ${conditions[i].value}`);
+        }else if (conditions[i].type == "GREATER"){
+            sqlQuery = sqlQuery.concat(`${conditions[i].field} > ${conditions[i].value}`);
+        }else if (conditions[i].type == "LESS"){
+            sqlQuery = sqlQuery.concat(`${conditions[i].field} < ${conditions[i].value}`);
+        }else if (conditions[i].type == "BETWEEN"){
+            sqlQuery = sqlQuery.concat(`${conditions[i].field} BETWEEN ${conditions[i].min} AND ${conditions[i].max}`);
         }
     }
     sqlQuery = sqlQuery.concat(" ORDER BY ListingDate DESC");
