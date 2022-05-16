@@ -9,6 +9,18 @@ router.get('/', async (req, res) => {
     res.json(propertyTypes);
 });
 
+router.get('/img', async (req, res) => {
+    let propertyImage = await query.GetPropertyImage();
+    console.log(propertyImage);
+    res.json(propertyImage);
+});
+
+router.get('/properties', async (req, res) => {
+    let props = await query.GetAllProperties();
+    console.log(props);
+    res.json(props);
+});
+
 router.get('/:id', async (req, res) => {
     let propertyTypes = await query.GetAllPropertyTypes();
     const found = propertyTypes.some(propertyType => propertyType.PropertyTypeID === parseInt(req.params.id));

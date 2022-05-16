@@ -10,7 +10,11 @@ CREATE TABLE PropertyImage (
   PropertyImageID Int AUTO_INCREMENT NOT NULL PRIMARY KEY,
   ImageName varchar(50) NOT NULL,
   Description varchar(150) NOT NULL,
-  ImageURL varchar(300) NOT NULL
+  PropertyID INT NOT NULL,
+  ImageURL varchar(300) NOT NULL, 
+
+  FOREIGN KEY (PropertyID)
+      REFERENCES Property(PropertyID)
 );
 
 
@@ -53,7 +57,6 @@ CREATE TABLE Property (
   PropertyTypeID INT NOT NULL,
   ListingTypeID INT NOT NULL,
   AddressID INT NOT NULL,
-
   PropertyName varchar(30) NOT NULL,
   Description varchar(150) NOT NULL,
   Price DECIMAL(10, 2) NOT NULL,
@@ -78,19 +81,29 @@ CREATE TABLE Property (
 
   
     FOREIGN KEY (AddressID)
-      REFERENCES Address(AddressID)
+      REFERENCES Address(AddressID),
+  
 );
 
+USE notproperty24_db;
 
-
-USE NotProperty24_DB;
-
+-- NEEDS TO BE FIXED
+-- INSERT INTO Property (AgentID,PropertyTypeID,ListingTypeID,AddressID,PropertyImageID,PropertyName,Description,Price,Size,NoOfBedrooms,NoOfBathrooms,NoOfParkingSpaces,Furnished,ListingDate,OccupationDate)
+-- VALUES
+--     (1,1,2,1,1,'1 Kilarney Drive','Spacious','4000000','100.7',5,3,2,1,'2004-01-22',NULL);
 
 -- Listing Type
 INSERT INTO ListingType (ListingTypeName, Description)
 VALUES
     ('Sale','It is a property that is available for purchase.'),
     ('Rent', 'It is a property listing which is availabe for use as a tenant.');
+
+
+--NEEDS TO FIXED
+-- INSERT INTO PropertyImage (ImageName, Description, ImageURL )
+-- VALUES
+--     ('House1','3 Bedroom Apartment', 'images\Property Image.png'),
+--     ('House2', '4 Bedroom House', 'https://drive.google.com/drive/folders/1mPOvF38C2G7XlM35cyJO-cZ7HIRl9B1D');    
 
 
 -- Property Type
@@ -146,5 +159,4 @@ INSERT INTO Address (Street, City, Province, PostalCode)
 ('970 St. John Street','Somerset West','Western Cape','7135'),
 ('1979 Bezuidenhout St','Embalenhle','Mpumalanga','2285'),
 ('2298 Church St','Pretoria','Gauteng','0135'),
-('256 South St','Mabopane','Gauteng','0219')
-
+('256 South St','Mabopane','Gauteng','0219');

@@ -3,7 +3,7 @@ const mysql = require('mysql2/promise');
 
 function connect(){
     try{
-        let con = mysql.createConnection(config);
+        let con = mysql.createPool(config);
         console.log('Connected...')
         return con;
     }catch(err){
