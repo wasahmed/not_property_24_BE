@@ -1,18 +1,13 @@
-USE master;
-GO
-
-USE NotProperty24_DB;
-GO
 
 -- Listing Type
-INSERT INTO [ListingType] ([ListingTypeName], [Description])
+INSERT INTO ListingType (ListingTypeName, Description)
 VALUES
     ('Sale','It is a property that is available for purchase.'),
     ('Rent', 'It is a property listing which is availabe for use as a tenant.');
-GO
+
 
 -- Property Type
-INSERT INTO [PropertyType] ([PropertyTypeName], [Description])
+INSERT INTO PropertyType (PropertyTypeName, Description)
 VALUES
     ('Apartment','A room that is usually leased.'),
     ('House', 'A building that usually serves as a shelter for one or more families.'),
@@ -21,24 +16,24 @@ VALUES
     ('Farm','A piece of land devoted to agricultural purposes.'),
     ('Commercial','A building with a main purpose of conducting business.'),
     ('industrial','A building with a main purpose of conducting industry.');
-GO
+
 
 -- Agent
-INSERT INTO [Agent] ([FirstName], [LastName], [EmailAddress], [PhoneNumber], [ImageURL])
+INSERT INTO Agent (FirstName, LastName, EmailAddress, PhoneNumber, ImageURL)
 VALUES 
     ('Nickey', 'Serot', 'nserot0@npr.org', '344 566 5910', 'http://dummyimage.com/100x100.png/5fa2dd/ffffff'),
     ('Eldin', 'McGuffog', 'emcguffog1@yale.edu', '487 965 0190', 'http://dummyimage.com/100x100.png/5fa2dd/ffffff'),
     ('Wilone', 'Sazio', 'wsazio2@paypal.com', '394 739 0306', 'http://dummyimage.com/100x100.png/cc0000/ffffff'),
     ('Reine', 'Blann', 'rblann3@is.gd', '759 737 2055', 'http://dummyimage.com/100x100.png/5fa2dd/ffffff'),
-    ('Jessica', 'Spellman', 'jspellman4@sogou.com', '916 624 3082', 'http://dummyimage.com/100x100.png/cc0000/ffffff'),
+    ('Jessica', 'Spellman', 'jspellman4@sou.com', '916 624 3082', 'http://dummyimage.com/100x100.png/cc0000/ffffff'),
     ('Christina', 'Longman', 'clongman5@simplemachines.org', '941 800 0555', 'http://dummyimage.com/100x100.png/cc0000/ffffff'),
     ('Dulcea', 'Brinkler', 'dbrinkler6@squarespace.com', '351 421 9199', 'http://dummyimage.com/100x100.png/ff4444/ffffff'),
-    ('Mikel', 'Dizlie', 'mdizlie7@google.cn', '742 967 6279', 'http://dummyimage.com/100x100.png/dddddd/000000'),
-    ('Anthea', 'Currum', 'acurrum8@hhs.gov', '986 277 6380', 'http://dummyimage.com/100x100.png/ff4444/ffffff'),
-    ('Mead', 'Rodrigues', 'mrodrigues9@godaddy.com', '740 174 0686', 'http://dummyimage.com/100x100.png/dddddd/000000');
-GO
+    ('Mikel', 'Dizlie', 'mdizlie7@ogle.cn', '742 967 6279', 'http://dummyimage.com/100x100.png/dddddd/000000'),
+    ('Anthea', 'Currum', 'acurrum8@hhs.v', '986 277 6380', 'http://dummyimage.com/100x100.png/ff4444/ffffff'),
+    ('Mead', 'Rodrigues', 'mrodrigues9@daddy.com', '740 174 0686', 'http://dummyimage.com/100x100.png/dddddd/000000');
 
-INSERT INTO [Address] (Street, City, Province, PostalCode)
+
+INSERT INTO Address (Street, City, Province, PostalCode)
 	VALUES ('897 Gemsbok St','Pietersburg','Limpopo','0760'),
 ('496 Wit Rd','Johannesburg','Gauteng','2018'),
 ('1666 Robertson Ave','Temba','North West','0499'),
@@ -65,4 +60,3 @@ INSERT INTO [Address] (Street, City, Province, PostalCode)
 ('1979 Bezuidenhout St','Embalenhle','Mpumalanga','2285'),
 ('2298 Church St','Pretoria','Gauteng','0135'),
 ('256 South St','Mabopane','Gauteng','0219')
-GO

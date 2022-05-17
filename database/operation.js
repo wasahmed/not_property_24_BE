@@ -3,9 +3,9 @@ const mysql = require('mysql');
 
 function connect(){
     try{
-        let con = mysql.createConnection(config);
+        let pool = mysql.createPool(config);
         console.log('Connected...')
-        return con;
+        return pool;
     }catch(err){
         console.log(err);
     }
