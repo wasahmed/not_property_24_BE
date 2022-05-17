@@ -1,5 +1,4 @@
 const express = require('express');
-const path = require('path');
 const cors = require('cors');
 const logger = require('./middleware/logger')
 
@@ -9,12 +8,11 @@ app.use(logger);
 app.use(cors());
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: false}));
+app.use(express.urlencoded({ extended: true}));
 
-//set static folder using middleware
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.use('/api/listings', require('./routes/api/listings'));
+app.use('/api/propertytype', require('./routes/api/propertyType'));
+app.use('/api/listingtype', require('./routes/api/listingType'));
+//app.use('/api/properties', require('./routes/api/properties'));
 
 const PORT = 5001;
 
