@@ -14,6 +14,41 @@ async function GetAllPropertyTypes() {
     return results;
 }
 
+async function GetAllProperty() {
+    const connection = sql.connect();
+    const [results,] = await connection.execute(`SELECT 
+        p.PropertyID,
+        p.PropertyName,
+        p.Description,
+        p.Price,
+        p.Size,
+        p.NoOfBedrooms,
+        p.NoOfBathrooms,
+        p.NoOfParkingSpaces,
+        p.Furnished,
+        p.ListingDate,
+        p.OccupationDate,
+        ag.FirstName,
+        ag.LastName,
+        ag.EmailAddress,
+        ag.ImageURL,
+        ag.PhoneNumber,
+        ad.Street,
+        ad.Province,
+        ad.City,
+        ad.Street,
+        pi.PropertyID,
+        pi.ImageURL
+        FROM Property p 
+            INNER JOIN PropertyImage pi ON p.PropertyID = pi.PropertyID
+            INNER JOIN Agent ag ON ag.AgentID = p.AgentID
+            INNER JOIN Address ad ON ad.AddressID = p.AddressID
+            INNER JOIN ListingType lt ON lt.ListingTypeID = p.ListingTypeID
+            INNER JOIN PropertyType pt ON pt.PropertyTypeID = p.PropertyTypeID;`);
+    connection.end();
+    return results;
+}
+
 // General Function For Fetching Properties
 /* 
 add query conditions as an array of json objects in params with the following attributes:
@@ -63,4 +98,4 @@ async function GetAddress(addressID){
 }
 */
 
-module.exports = { GetAllListingTypes, GetAllPropertyTypes };
+module.exports = { GetAllListingTypes, GetAllPropertyTypes, GetAllProperty };
