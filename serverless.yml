@@ -1,4 +1,4 @@
-service: template-project
+service: notproperty24
 
 frameworkVersion: "2"
 
@@ -19,20 +19,105 @@ custom:
     lambdaPort: 4002
 
 functions:
-  listingType: 
-    name: ${self:service}-listingType
-    handler: functions/listingType.findAll
+  listListingTypes:
+    name: ${self:service}-allListingTypes
+    handler: functions/listingType.list
     events:
       - http:
           path: api/listingType
           method: get
           cors: true
-  propertyType: 
-    name: ${self:service}-propertyType
-    handler: functions/propertyType.findAll
+  listingType:
+    name: ${self:service}-listingType
+    handler: functions/listingType.get
+    events:
+      - http:
+          path: api/listingType/{id}
+          method: get
+          cors: true
+
+  listPropertyTypes:
+    name: ${self:service}-allPropertyTypes
+    handler: functions/propertyType.list
     events:
       - http:
           path: api/propertyType
+          method: get
+          cors: true
+  propertyType:
+    name: ${self:service}-propertyType
+    handler: functions/propertyType.get
+    events:
+      - http:
+          path: api/propertyType/{id}
+          method: get
+          cors: true
+
+  listAddress:
+    name: ${self:service}-allAddress
+    handler: functions/address.list
+    events:
+      - http:
+          path: api/address
+          method: get
+          cors: true
+  address:
+    name: ${self:service}-address
+    handler: functions/address.get
+    events:
+      - http:
+          path: api/address/{id}
+          method: get
+          cors: true
+
+  listAgents:
+    name: ${self:service}-allAgents
+    handler: functions/agent.list
+    events:
+      - http:
+          path: api/agent
+          method: get
+          cors: true
+  agent:
+    name: ${self:service}-agent
+    handler: functions/agent.get
+    events:
+      - http:
+          path: api/agent/{id}
+          method: get
+          cors: true
+
+  listProperyyImages:
+    name: ${self:service}-allPropertyImages
+    handler: functions/propertyImage.list
+    events:
+      - http:
+          path: api/propertyImage
+          method: get
+          cors: true
+  propertyImage:
+    name: ${self:service}-propertyImage
+    handler: functions/propertyImage.get
+    events:
+      - http:
+          path: api/propertyImage/{id}
+          method: get
+          cors: true
+
+  listProperty:
+    name: ${self:service}-allProperties
+    handler: functions/property.list
+    events:
+      - http:
+          path: api/property
+          method: get
+          cors: true
+  property:
+    name: ${self:service}-property
+    handler: functions/property.get
+    events:
+      - http:
+          path: api/property/{id}
           method: get
           cors: true
 

@@ -3,7 +3,7 @@ const query = require("../database/query");
 const get = async (event, context, callback) => {
   const id = event.pathParameters.id;
   const result = await query.selectWhere(
-    "SELECT * FROM ListingType WHERE ListingTypeID = ?",
+    "SELECT * FROM Agent WHERE AgentID = ?",
     [id]
   );
   return {
@@ -13,7 +13,7 @@ const get = async (event, context, callback) => {
 };
 
 const list = async () => {
-  const result = await query.select("SELECT * FROM ListingType");
+  const result = await query.select("SELECT * FROM Agent");
   return {
     statusCode: 200,
     body: JSON.stringify({ success: true, result: result }),

@@ -1,11 +1,23 @@
 const query = require("../database/query");
 
-const findAll = async () => {
-  const res = await query.findAllPropertyType();
+const get = async (event, context, callback) => {
+  const id = event.pathParameters.id;
+  const result = await query.selectWhere(
+    "SELECT * FROM PropertyType WHERE PropertyTypeID = ?",
+    [id]
+  );
   return {
     statusCode: 200,
-    body: JSON.stringify({ success: true, result: res }),
+    body: JSON.stringify({ success: true, result: result }),
   };
 };
 
-module.exports = { findAll };
+const list = async () => {
+  const result = await query.select("SELECT * FROM PropertyType");
+  return {
+    statusCode: 200,
+    body: JSON.stringify({ success: true, result: result }),
+  };
+};
+
+module.exports = { list, get };

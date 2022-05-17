@@ -1,14 +1,7 @@
 const config = require("./dbconfig");
 const mysql = require('mysql');
 
-function connect(){
-    try{
-        let pool = mysql.createPool(config);
-        console.log('Connected...')
-        return pool;
-    }catch(err){
-        console.log(err);
-    }
-}
+const pool = mysql.createPool(config);
+if (pool) console.log('Connected...');
 
-module.exports = { connect };
+module.exports = { pool };
