@@ -15,6 +15,6 @@ app.use('/api/listingtype', require('./routes/api/listingType'));
 app.use('/api/property', require('./routes/api/property'));
 //app.use('/api/properties', require('./routes/api/properties'));
 
-const PORT = 5001;
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
