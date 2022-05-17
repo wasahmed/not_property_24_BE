@@ -6,18 +6,6 @@ CREATE DATABASE NotProperty24_DB;
 USE NotProperty24_DB;
 
 
-CREATE TABLE PropertyImage (
-  PropertyImageID Int AUTO_INCREMENT NOT NULL PRIMARY KEY,
-  ImageName varchar(50) NOT NULL,
-  Description varchar(150) NOT NULL,
-  PropertyID INT NOT NULL,
-  ImageURL varchar(300) NOT NULL, 
-
-  FOREIGN KEY (PropertyID)
-      REFERENCES Property(PropertyID)
-);
-
-
 CREATE TABLE ListingType (
   ListingTypeID Int AUTO_INCREMENT NOT NULL PRIMARY KEY,
   ListingTypeName varchar(10) NOT NULL,
@@ -81,29 +69,28 @@ CREATE TABLE Property (
 
   
     FOREIGN KEY (AddressID)
-      REFERENCES Address(AddressID),
+      REFERENCES Address(AddressID)
   
 );
 
-USE notproperty24_db;
+CREATE TABLE PropertyImage (
+  PropertyImageID Int AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  ImageName varchar(50) NOT NULL,
+  Description varchar(150) NOT NULL,
+  PropertyID INT NOT NULL,
+  ImageURL varchar(300) NOT NULL, 
 
--- NEEDS TO BE FIXED
--- INSERT INTO Property (AgentID,PropertyTypeID,ListingTypeID,AddressID,PropertyImageID,PropertyName,Description,Price,Size,NoOfBedrooms,NoOfBathrooms,NoOfParkingSpaces,Furnished,ListingDate,OccupationDate)
--- VALUES
---     (1,1,2,1,1,'1 Kilarney Drive','Spacious','4000000','100.7',5,3,2,1,'2004-01-22',NULL);
+  FOREIGN KEY (PropertyID)
+      REFERENCES Property(PropertyID)
+);
+
+USE NotProperty24_DB;
 
 -- Listing Type
 INSERT INTO ListingType (ListingTypeName, Description)
 VALUES
     ('Sale','It is a property that is available for purchase.'),
-    ('Rent', 'It is a property listing which is availabe for use as a tenant.');
-
-
---NEEDS TO FIXED
--- INSERT INTO PropertyImage (ImageName, Description, ImageURL )
--- VALUES
---     ('House1','3 Bedroom Apartment', 'images\Property Image.png'),
---     ('House2', '4 Bedroom House', 'https://drive.google.com/drive/folders/1mPOvF38C2G7XlM35cyJO-cZ7HIRl9B1D');    
+    ('Rent', 'It is a property listing which is availabe for use as a tenant.');   
 
 
 -- Property Type
@@ -160,3 +147,13 @@ INSERT INTO Address (Street, City, Province, PostalCode)
 ('1979 Bezuidenhout St','Embalenhle','Mpumalanga','2285'),
 ('2298 Church St','Pretoria','Gauteng','0135'),
 ('256 South St','Mabopane','Gauteng','0219');
+
+INSERT INTO Property (AgentID,PropertyTypeID,ListingTypeID,AddressID,PropertyName,Description,Price,Size,NoOfBedrooms,NoOfBathrooms,NoOfParkingSpaces,Furnished,ListingDate,OccupationDate)
+VALUES
+    (1,1,2,1,'1 Kilarney Drive','Spacious','4000000','100.7',5,3,2,1,'2004-01-22',NULL);
+
+INSERT INTO PropertyImage (ImageName, Description, PropertyID, ImageURL )
+VALUES
+    ('House1','3 Bedroom Apartment', 1, 'https://images24.s3.af-south-1.amazonaws.com/Property+Image.png'),
+    ('House2', '4 Bedroom House', 1, 'https://images24.s3.af-south-1.amazonaws.com/Property+Image_2.png');     
+
