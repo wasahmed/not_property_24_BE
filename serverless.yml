@@ -120,6 +120,16 @@ functions:
           path: api/property/{id}
           method: get
           cors: true
+  propertySubmission:
+    name: ${self:service}-propertySubmit
+    handler: functions/property.submit
+    memorySize: 128
+    description: Insert a new property.
+    events:
+      - http:
+          path: api/property
+          method: post
+          cors: true
 
 plugins:
   - serverless-offline

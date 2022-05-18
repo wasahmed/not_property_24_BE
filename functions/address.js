@@ -20,4 +20,12 @@ const list = async () => {
   };
 };
 
+
+const submit = async(event, context, callback)=>{
+  return {
+    statusCode: 200,
+    body: JSON.stringify({ success: true, message: 'New address created', input:event }),
+  };
+}
+
 module.exports = { list, get };

@@ -60,3 +60,24 @@ INSERT INTO Address (Street, City, Province, PostalCode)
 ('1979 Bezuidenhout St','Embalenhle','Mpumalanga','2285'),
 ('2298 Church St','Pretoria','Gauteng','0135'),
 ('256 South St','Mabopane','Gauteng','0219')
+
+
+INSERT INTO Property (AgentID,PropertyTypeID,ListingTypeID,
+    AddressID,PropertyName,Description,Price,Size,NoOfBedrooms,
+    NoOfBathrooms,NoOfParkingSpaces,Furnished,ListingDate,OccupationDate)
+VALUES
+    (1,1,1,1,'5 Bedroom House','Spacious','4000000','100.7',5,3,2,1,'2004-01-22',NULL),
+    (2,2,1,2,'4 Bedroom House','Spacious','2000000','87',4,3,2,1,'2004-01-22',NULL),
+    (3,1,1,3,'3 Bedroom House','Spacious','3000000','106',3,3,2,1,'2004-01-22',NULL),
+    (4,2,1,4,'3 Bedroom House','Spacious','3600000','109',3,3,2,1,'2004-01-22',NULL),
+    (5,1,1,5,'2 Bedroom House','Spacious','2700000','95',2,3,2,1,'2004-01-22',NULL),
+    (6,2,1,6,'4 Bedroom House','Spacious','1800000','100',4,3,2,1,'2004-01-22',NULL);
+
+INSERT INTO PropertyImage (ImageName, Description, PropertyID, ImageURL )
+VALUES
+    ('House1', '3 Bedroom Apartment', 1, 'https://images24.s3.af-south-1.amazonaws.com/Property+Image.png'),
+    ('House2', '4 Bedroom House', 2, 'https://images24.s3.af-south-1.amazonaws.com/Property+Image_2.png'),     
+    ('House3', '4 Bedroom House', 3, 'https://images24.s3.af-south-1.amazonaws.com/house1.jfif'),     
+    ('House4', '4 Bedroom House', 4, 'https://images24.s3.af-south-1.amazonaws.com/house2.jpg'),     
+    ('House5', '4 Bedroom House', 5, 'https://images24.s3.af-south-1.amazonaws.com/house3.jpg'),     
+    ('House6', '4 Bedroom House', 6, 'https://images24.s3.af-south-1.amazonaws.com/house5.jfif');  

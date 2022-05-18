@@ -1,11 +1,3 @@
-CREATE TABLE PropertyImage (
-  PropertyImageID int NOT NULL AUTO_INCREMENT,
-  ImageName varchar(50) NOT NULL,
-  Description varchar(150) NOT NULL,
-  ImageURL varchar(300) NOT NULL,
-  PRIMARY KEY(PropertyImageID)
-);
-
 CREATE TABLE ListingType (
   ListingTypeID int NOT NULL AUTO_INCREMENT,
   ListingTypeName varchar(10) NOT NULL,
@@ -74,4 +66,18 @@ CREATE TABLE Property (
   CONSTRAINT FK_Property.AddressID
     FOREIGN KEY (AddressID)
       REFERENCES Address(AddressID),
+);
+
+CREATE TABLE PropertyImage (
+  PropertyImageID int NOT NULL AUTO_INCREMENT,
+  PropertyID int NOT NULL,
+  ImageName varchar(50) NOT NULL,
+  Description varchar(150) NOT NULL,
+  ImageURL varchar(300) NOT NULL,
+
+  PRIMARY KEY(PropertyImageID),
+  CONSTRAINT FK_PropertyImage.PropertyID
+    FOREIGN KEY(PropertyID)
+      REFERENCES Property(PropertyID)
+
 );
