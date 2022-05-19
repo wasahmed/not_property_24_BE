@@ -161,6 +161,9 @@ INSERT INTO PropertyImage (ImageName, Description, PropertyID, ImageURL )
 VALUES
     ('House1', '3 Bedroom Apartment', 1, 'https://images24.s3.af-south-1.amazonaws.com/Property+Image.png'),
     ('House2', '4 Bedroom House', 2, 'https://images24.s3.af-south-1.amazonaws.com/Property+Image_2.png'),     
+    ('House2', '4 Bedroom House', 2, 'https://images24.s3.af-south-1.amazonaws.com/bathroom1.png'),     
+    ('House2', '4 Bedroom House', 2, 'https://images24.s3.af-south-1.amazonaws.com/bedroom1.jfif'),     
+    ('House2', '4 Bedroom House', 2, 'https://images24.s3.af-south-1.amazonaws.com/bedroom2.jfif'),     
     ('House3', '4 Bedroom House', 3, 'https://images24.s3.af-south-1.amazonaws.com/house1.jfif'),     
     ('House4', '4 Bedroom House', 4, 'https://images24.s3.af-south-1.amazonaws.com/house2.jpg'),     
     ('House5', '4 Bedroom House', 5, 'https://images24.s3.af-south-1.amazonaws.com/house3.jpg'),     

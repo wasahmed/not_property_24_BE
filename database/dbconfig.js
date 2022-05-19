@@ -1,7 +1,7 @@
 const config = {
-    host: "real-estate-app-db-instance-1.cefferesjfkl.us-east-1.rds.amazonaws.com",
-    user: "admin",
-    password: "notproperty24",
+    host: "localhost",
+    user: "root",
+    password: "admin",
     database: "NotProperty24_DB"
   };
   

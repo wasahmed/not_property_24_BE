@@ -13,6 +13,7 @@ app.use(express.urlencoded({ extended: true}));
 app.use('/api/propertytype', require('./routes/api/propertyType'));
 app.use('/api/listingtype', require('./routes/api/listingType'));
 app.use('/api/property', require('./routes/api/property'));
+app.use('/api/images', require('./routes/api/images'));
 //app.use('/api/properties', require('./routes/api/properties'));
 
 const PORT = process.env.PORT || 5001;
