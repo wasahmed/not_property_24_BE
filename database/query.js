@@ -14,6 +14,13 @@ async function GetAllPropertyTypes() {
     return results;
 }
 
+async function GetImagesForProperty(imageID) {
+    const connection = sql.connect();
+    const [results,] = await connection.execute(`SELECT * FROM PropertyImage WHERE PropertyID = ${imageID}`);
+    connection.end();
+    return results;
+}
+
 async function GetProperty(id) {
     const connection = sql.connect();
     const [results,] = await connection.execute(`SELECT 
@@ -36,11 +43,8 @@ async function GetProperty(id) {
         ad.Street,
         ad.Province,
         ad.City,
-        ad.Street,
-        pi.PropertyID,
-        pi.ImageURL
+        ad.Street
         FROM Property p 
-            INNER JOIN PropertyImage pi ON p.PropertyID = pi.PropertyID
             INNER JOIN Agent ag ON ag.AgentID = p.AgentID
             INNER JOIN Address ad ON ad.AddressID = p.AddressID
             INNER JOIN ListingType lt ON lt.ListingTypeID = p.ListingTypeID
@@ -72,11 +76,8 @@ async function GetAllProperty() {
         ad.Street,
         ad.Province,
         ad.City,
-        ad.Street,
-        pi.PropertyID,
-        pi.ImageURL
+        ad.Street
         FROM Property p 
-            INNER JOIN PropertyImage pi ON p.PropertyID = pi.PropertyID
             INNER JOIN Agent ag ON ag.AgentID = p.AgentID
             INNER JOIN Address ad ON ad.AddressID = p.AddressID
             INNER JOIN ListingType lt ON lt.ListingTypeID = p.ListingTypeID
@@ -134,4 +135,4 @@ async function GetAddress(addressID){
 }
 */
 
-module.exports = { GetAllListingTypes, GetAllPropertyTypes, GetAllProperty, GetProperty };
+module.exports = { GetAllListingTypes, GetAllPropertyTypes, GetAllProperty, GetProperty, GetImagesForProperty };
