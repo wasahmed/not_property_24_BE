@@ -22,6 +22,7 @@ functions:
   listListingTypes:
     name: ${self:service}-allListingTypes
     handler: functions/listingType.list
+    memorySize: 128
     events:
       - http:
           path: api/listingType
@@ -30,6 +31,7 @@ functions:
   listingType:
     name: ${self:service}-listingType
     handler: functions/listingType.get
+    memorySize: 128
     events:
       - http:
           path: api/listingType/{id}
@@ -39,6 +41,7 @@ functions:
   listPropertyTypes:
     name: ${self:service}-allPropertyTypes
     handler: functions/propertyType.list
+    memorySize: 128
     events:
       - http:
           path: api/propertyType
@@ -47,6 +50,7 @@ functions:
   propertyType:
     name: ${self:service}-propertyType
     handler: functions/propertyType.get
+    memorySize: 128
     events:
       - http:
           path: api/propertyType/{id}
@@ -56,6 +60,7 @@ functions:
   listAddress:
     name: ${self:service}-allAddress
     handler: functions/address.list
+    memorySize: 128
     events:
       - http:
           path: api/address
@@ -64,6 +69,7 @@ functions:
   address:
     name: ${self:service}-address
     handler: functions/address.get
+    memorySize: 128
     events:
       - http:
           path: api/address/{id}
@@ -73,6 +79,7 @@ functions:
   listAgents:
     name: ${self:service}-allAgents
     handler: functions/agent.list
+    memorySize: 128
     events:
       - http:
           path: api/agent
@@ -81,6 +88,7 @@ functions:
   agent:
     name: ${self:service}-agent
     handler: functions/agent.get
+    memorySize: 128
     events:
       - http:
           path: api/agent/{id}
@@ -90,6 +98,7 @@ functions:
   listProperyyImages:
     name: ${self:service}-allPropertyImages
     handler: functions/propertyImage.list
+    memorySize: 128
     events:
       - http:
           path: api/propertyImage
@@ -98,6 +107,7 @@ functions:
   propertyImage:
     name: ${self:service}-propertyImage
     handler: functions/propertyImage.get
+    memorySize: 128
     events:
       - http:
           path: api/propertyImage/{id}
@@ -107,6 +117,7 @@ functions:
   listProperty:
     name: ${self:service}-allProperties
     handler: functions/property.list
+    memorySize: 128
     events:
       - http:
           path: api/property
@@ -115,6 +126,7 @@ functions:
   property:
     name: ${self:service}-property
     handler: functions/property.get
+    memorySize: 128
     events:
       - http:
           path: api/property/{id}

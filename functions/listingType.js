@@ -8,6 +8,10 @@ const get = async (event, context, callback) => {
   );
   return {
     statusCode: 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Credentials': true,
+    },
     body: JSON.stringify({ success: true, result: result }),
   };
 };
@@ -16,6 +20,10 @@ const list = async () => {
   const result = await query.select("SELECT * FROM ListingType");
   return {
     statusCode: 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Credentials': true,
+    },
     body: JSON.stringify({ success: true, result: result }),
   };
 };
